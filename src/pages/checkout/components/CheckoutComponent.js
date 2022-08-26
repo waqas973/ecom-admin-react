@@ -1,9 +1,15 @@
+import DropIn from "braintree-web-drop-in-react";
 import React, { Fragment, useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { LayoutContext } from "src/context/LayoutContext";
+import { totalCost } from "src/helper/totalCost";
 import { cartListProduct } from "src/shared/services/cartListProductService";
-import { fetchData } from "../Action";
+import { fetchbrainTree, fetchData, pay } from "../Action";
+import {
+  getBrainTreeToken,
+  getPaymentProcess,
+} from "../services/CheckoutService";
 import CheckoutProductsComponent from "./CheckoutProductsComponent";
 
 const apiURL = process.env.REACT_APP_API_URL;
@@ -23,7 +29,7 @@ const CheckoutComponent = () => {
 
   useEffect(() => {
     fetchData(cartListProduct, dispatch);
-    // fetchbrainTree(getBrainTreeToken, setState);
+    fetchbrainTree(getBrainTreeToken, setState);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -77,18 +83,17 @@ const CheckoutComponent = () => {
                       Dalivery Address
                     </label>
                     <input
-                      value={state.address}
-                      onChange={(e) =>
-                        setState({
-                          ...state,
-                          address: e.target.value,
-                          error: false,
-                        })
-                      }
                       type="text"
                       id="address"
                       className="border px-4 py-2"
                       placeholder="Address..."
+                      onChange={(e) => {
+                        setState({
+                          ...state,
+                          address: e.target.value,
+                          error: false,
+                        });
+                      }}
                     />
                   </div>
                   <div className="flex flex-col py-2 mb-2">
@@ -96,7 +101,6 @@ const CheckoutComponent = () => {
                       Phone
                     </label>
                     <input
-                      value={state.phone}
                       onChange={(e) =>
                         setState({
                           ...state,
@@ -110,27 +114,27 @@ const CheckoutComponent = () => {
                       placeholder="+880"
                     />
                   </div>
-                  {/* <DropIn
-                  options={{
-                    authorization: state.clientToken,
-                    paypal: {
-                      flow: "vault",
-                    },
-                  }}
-                  onInstance={(instance) => (state.instance = instance)}
-                /> */}
+                  <DropIn
+                    options={{
+                      authorization: state.clientToken,
+                      paypal: {
+                        flow: "vault",
+                      },
+                    }}
+                    onInstance={(instance) => (state.instance = instance)}
+                  />
                   <div
-                    // onClick={(e) =>
-                    //   pay(
-                    //     data,
-                    //     dispatch,
-                    //     state,
-                    //     setState,
-                    //     getPaymentProcess,
-                    //     totalCost,
-                    //     history
-                    //   )
-                    // }
+                    onClick={(e) =>
+                      pay(
+                        data,
+                        dispatch,
+                        state,
+                        setState,
+                        getPaymentProcess,
+                        totalCost,
+                        history
+                      )
+                    }
                     className="w-full px-4 py-2 text-center text-white font-semibold cursor-pointer"
                     style={{ background: "#303031" }}
                   >

@@ -3,7 +3,7 @@ import {
   postDeleteImage,
   postUploadImage,
 } from "src/pages/dashboardAdmin/services/ImageService";
-import { getAllOrder } from "src/pages/dashboardAdmin/services/orderService";
+import { getAllOrder } from "src/shared/services/orderService";
 
 export const uploadImage = async (image, dispatch) => {
   dispatch({ type: "imageUpload", payload: true });
