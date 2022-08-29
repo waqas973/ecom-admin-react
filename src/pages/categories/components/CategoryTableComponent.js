@@ -1,8 +1,6 @@
 import moment from "moment";
 import React, { Fragment } from "react";
 
-const apiURL = process.env.REACT_APP_API_URL;
-
 const CategoryTableComponent = ({ category, deleteCat, editCat }) => {
   return (
     <Fragment>
@@ -20,7 +18,7 @@ const CategoryTableComponent = ({ category, deleteCat, editCat }) => {
         <td className="p-2 text-center">
           <img
             className="w-12 h-12 object-cover object-center"
-            src={`${apiURL}/uploads/categories/${category.cImage}`}
+            src={category.cImage}
             alt=""
           />
         </td>

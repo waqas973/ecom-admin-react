@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Ecom-react-porject
 
 ## Available Scripts
 
@@ -37,32 +37,22 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## For Admin Login
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+email: admin@gmail.com
+password: 12312312
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## For User Login
 
-### Code Splitting
+User can directly signup and then login.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### For checkout use fake credientials given below:
 
-### Analyzing the Bundle Size
+Card Number: 4009348888881881
+Expiry : any date you like
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Card Number: 378282246310005
+Expiry : any date you like
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Card Number: 5555555555554444
+Expiry : any date you like

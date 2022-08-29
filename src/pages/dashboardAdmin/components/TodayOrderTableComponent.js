@@ -1,8 +1,6 @@
 import moment from "moment";
 import React, { Fragment } from "react";
 
-const apiURL = process.env.REACT_APP_API_URL;
-
 const TodayOrderTableComponent = ({ order }) => {
   return (
     <Fragment>
@@ -23,7 +21,7 @@ const TodayOrderTableComponent = ({ order }) => {
               <img
                 key={index}
                 className="w-12 h-12 object-cover"
-                src={`${apiURL}/uploads/products/${item.id.pImages[0]}`}
+                src={item.id.pImages[0]}
                 alt="Pic"
               />
             );

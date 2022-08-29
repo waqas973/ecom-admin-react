@@ -6,8 +6,6 @@ import { prevSlide } from "src/pages/home/helper/prevSlide";
 import { sliderImagesService } from "src/shared/services/slideImagesService";
 import OrderSuccessMessageComponent from "src/pages/home/components/OrderSuccessMessageComponent";
 
-const apiURL = process.env.REACT_APP_API_URL;
-
 const SliderComponent = () => {
   const { data, dispatch } = useContext(HomeContext);
   const [slide, setSlide] = useState(0);
@@ -22,7 +20,7 @@ const SliderComponent = () => {
         {data.sliderImages.length > 0 ? (
           <img
             className="w-full"
-            src={`${apiURL}/uploads/customize/${data.sliderImages[slide].slideImage}`}
+            src={data.sliderImages[slide].slideImage}
             alt="sliderImage"
             style={{ height: "35rem", objectFit: "cover" }}
           />

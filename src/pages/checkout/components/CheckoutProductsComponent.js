@@ -3,8 +3,6 @@ import { useHistory } from "react-router-dom";
 import { quantityFinder } from "src/helper/quantityFinder";
 import { subTotal } from "src/helper/subTotal";
 
-const apiURL = process.env.REACT_APP_API_URL;
-
 const CheckoutProductsComponent = ({ products }) => {
   const history = useHistory();
   return (
@@ -21,7 +19,7 @@ const CheckoutProductsComponent = ({ products }) => {
                   <img
                     onClick={(e) => history.push(`/products/${product._id}`)}
                     className="cursor-pointer md:h-20 md:w-20 object-cover object-center"
-                    src={`${apiURL}/uploads/products/${product.pImages[0]}`}
+                    src={product.pImages[0]}
                     alt="wishListproduct"
                   />
                   <div className="text-lg md:ml-6 truncate">

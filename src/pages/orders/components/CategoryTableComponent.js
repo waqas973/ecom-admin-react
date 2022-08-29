@@ -4,8 +4,6 @@ import React, { Fragment, useContext } from "react";
 import { deleteOrderReq } from "../Action";
 import { OrderContext } from "../context/OrderContext";
 
-const apiURL = process.env.REACT_APP_API_URL;
-
 const CategoryTableComponent = ({ order, editOrder }) => {
   const { dispatch } = useContext(OrderContext);
 
@@ -18,7 +16,7 @@ const CategoryTableComponent = ({ order, editOrder }) => {
               <span className="block flex items-center space-x-2" key={i}>
                 <img
                   className="w-8 h-8 object-cover object-center"
-                  src={`${apiURL}/uploads/products/${product.id.pImages[0]}`}
+                  src={product.id.pImages[0]}
                   alt="productImage"
                 />
                 <span>{product.id.pName}</span>
@@ -60,9 +58,11 @@ const CategoryTableComponent = ({ order, editOrder }) => {
         <td className="hover:bg-gray-200 p-2 text-center">
           {order.transactionId}
         </td>
-        <td className="hover:bg-gray-200 p-2 text-center">{order.user.name}</td>
         <td className="hover:bg-gray-200 p-2 text-center">
-          {order.user.email}
+          {order.user?.name}
+        </td>
+        <td className="hover:bg-gray-200 p-2 text-center">
+          {order.user?.email}
         </td>
         <td className="hover:bg-gray-200 p-2 text-center">{order.phone}</td>
         <td className="hover:bg-gray-200 p-2 text-center">{order.address}</td>

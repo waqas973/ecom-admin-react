@@ -10,7 +10,7 @@ const ProductTableComponent = ({ product, deleteProduct, editProduct }) => {
         <td className="p-2 text-left">
           {product.pName.length > 15
             ? product.pDescription.substring(1, 15) + "..."
-            : product.pName}
+            : product?.pName}
         </td>
         <td className="p-2 text-left">
           {product.pDescription.slice(0, 15)}...
@@ -18,7 +18,7 @@ const ProductTableComponent = ({ product, deleteProduct, editProduct }) => {
         <td className="p-2 text-center">
           <img
             className="w-12 h-12 object-cover object-center"
-            src={`${apiURL}/uploads/products/${product.pImages[0]}`}
+            src={product.pImages[0]}
             alt="pic"
           />
         </td>
@@ -34,7 +34,7 @@ const ProductTableComponent = ({ product, deleteProduct, editProduct }) => {
           )}
         </td>
         <td className="p-2 text-center">{product.pQuantity}</td>
-        <td className="p-2 text-center">{product.pCategory.cName}</td>
+        <td className="p-2 text-center">{product.pCategory?.cName}</td>
         <td className="p-2 text-center">{product.pOffer}</td>
         <td className="p-2 text-center">
           {moment(product.createdAt).format("lll")}

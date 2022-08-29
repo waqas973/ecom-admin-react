@@ -3,8 +3,6 @@ import { useHistory } from "react-router-dom";
 
 import SubmenuComponent from "./SubmenuComponent";
 
-const apiURL = process.env.REACT_APP_API_URL;
-
 const AllProductComponent = ({ products }) => {
   const history = useHistory();
   const category =
@@ -21,7 +19,7 @@ const AllProductComponent = ({ products }) => {
                   <img
                     onClick={(e) => history.push(`/products/${item._id}`)}
                     className="w-full object-cover object-center cursor-pointer"
-                    src={`${apiURL}/uploads/products/${item.pImages[0]}`}
+                    src={item.pImages[0]}
                     alt=""
                   />
                   <div className="flex items-center justify-between mt-2">

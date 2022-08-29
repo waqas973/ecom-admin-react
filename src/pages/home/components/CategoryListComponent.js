@@ -4,8 +4,6 @@ import { useHistory } from "react-router-dom";
 import { HomeContext } from "src/pages/home/context/HomeContext";
 import { getAllCategory } from "src/shared/services/categoryServcie";
 
-const apiURL = process.env.REACT_APP_API_URL;
-
 const CategoryListComponent = () => {
   const history = useHistory();
   const { data } = useContext(HomeContext);
@@ -41,8 +39,13 @@ const CategoryListComponent = () => {
                   className="col-span-1 m-2 flex flex-col items-center justify-center space-y-2 cursor-pointer"
                 >
                   <img
-                    src={`${apiURL}/uploads/categories/${item.cImage}`}
+                    src={item.cImage}
                     alt="pic"
+                    style={{
+                      width: "100%",
+                      height: "13rem",
+                      objectFit: "cover",
+                    }}
                   />
                   <div className="font-medium">{item.cName}</div>
                 </div>

@@ -9,8 +9,6 @@ import {
   unWishReq,
 } from "src/shared/services/wishListService";
 
-const apiURL = process.env.REACT_APP_API_URL;
-
 const SingleProductComponent = () => {
   const { data, dispatch } = useContext(HomeContext);
   const { products } = data;
@@ -72,7 +70,7 @@ const SingleProductComponent = () => {
                 <img
                   onClick={(e) => history.push(`/products/${item._id}`)}
                   className="w-full object-cover object-center cursor-pointer"
-                  src={`${apiURL}/uploads/products/${item.pImages[0]}`}
+                  src={item.pImages[0]}
                   alt=""
                   style={{ height: "16rem", objectFit: "cover" }}
                 />
